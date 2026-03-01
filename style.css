@@ -6,7 +6,7 @@
 }
 .cursor {
     position: fixed;
-    /* top: 0; left: 0; */
+    top: 0; left: 0;
     width: 20px; height: 20px;
     background: var(--accent);
     border-radius: 50%;
@@ -14,7 +14,7 @@
     transform: translate(-50%, -50%);
     /* transition: all 0.5s ease-out; */
     z-index: 10000;
-    background: rgb(245, 32, 249);
+    background-color: rgb(245, 32, 249);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; cursor: none;}
@@ -309,4 +309,3 @@ section {
     0% { background-position-x: 0px; }
     100% { background-position-x: 1000px; }
 }
-
