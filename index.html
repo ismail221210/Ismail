@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ismail | Web Developer Portfolio in Pakistan</title>
-    <meta name="keywords" content="Ismail Web Developer, Web Developer in Pakistan, HTML CSS JavaScript Developer, Frontend Developer Portfolio">
+    
+    <!-- SEO Keywords -->
+    <meta name="description" content="Ismail Portfolio - Web Developer, UI Designer, Student, HTML, CSS, JavaScript, Responsive Web Development, Frontend Projects, Personal Portfolio">
+    <meta name="keywords" content="Web Developer, Portfolio, HTML, CSS, JavaScript, UI Design, Responsive Web, Frontend Projects, Ismail Portfolio">
+  <meta name="keywords" content="Ismail Web Developer, Web Developer in Pakistan, HTML CSS JavaScript Developer, Frontend Developer Portfolio">
   <meta name="description" content="Ismail is a professional web developer in Pakistan offering HTML, CSS, and JavaScript services. Hire me for modern and responsive websites.">
     <meta name="author" content="Ismail">
     <meta name="robots" content="index, follow">
@@ -15,90 +18,53 @@
   <link rel="icon" type="image/png" href="image.png">
   <link rel="canonical" href="https://ismailarain.vercel.app/">
   <meta property="og:image" content="https://ismailarain.vercel.app/image.png">
-     
-
-<style>
-  .cursor {
-    position: fixed;
-    width: 20px; height: 20px;
-    background: #8b5cf6;
-    border-radius: 50%;
-    pointer-events: none; /* Crucial: Allows clicks to pass through */
-    z-index: 9999;
-    transition: transform 0.1s ease;
-    cursor: none;
-  }
-
-  /* Ripple Animation */
-  .cursor.click { transform: scale(2); opacity: 0.5; cursor: none; }
-</style>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
     
-    <script defer src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-     </head>
-
+    <link rel="stylesheet" href="style.css">
+    <title>Ismail Arain | Web Developer</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+</head>
 <body>
+
   <div class="cursor" id="cursor"></div>
 
-  <script>
-    const cursor = document.getElementById('cursor');
+  <nav>
+      <div class="logo">ISMAIL<span>.</span></div>
+      <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#goals">Goals</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+      </ul>
+  </nav>
 
-    // Move cursor with mouse
-    document.addEventListener('mousemove', (e) => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-    });
+  <section id="hero">
+      <div id="particles-js"></div>
+      <div class="hero-container">
+          <div class="hero-left">
+              <h1>Hi, I'm <span style="color:var(--accent);">Ismail</span></h1>
+              <div id="typedText"></div>
+              <button class="explore-btn" onclick="document.getElementById('about').scrollIntoView()">Explore My Story</button>
+          </div>
 
-    // Add ripple effect on click
-    document.addEventListener('mousedown', () => {
-      cursor.classList.add('click');
-    });
-    document.addEventListener('mouseup', () => {
-      cursor.classList.remove('click');
-    });
-  </script>
+          <div class="hero-right">
+              <div class="click-path-container">
+                  <button id="revealBtn" class="clip-path-button">View My Profile</button>
+                  <div id="imageFrame" class="clip-path-slot">
+                      <img id="targetImage" src="/image.png" alt="Ismail" class="clip-path-image">
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
 
-    
-    
-
-
-
-    <nav>
-        <div class="logo">ISMAIL<span>.</span></div>
-        <ul>
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#goals">Goals</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <section id="hero">
-        <div id="particles-js"></div>
-        <div class="hero-container">
-            <div class="hero-left">
-                <h1>Ismail – Professional Web Developer in Pakistan</h1>
-                <div id="typedText"></div>
-                <button class="explore-btn" onclick="document.getElementById('about').scrollIntoView()">Explore My Story</button>
-            </div>
-
-            <div class="hero-right">
-                <div class="click-path-container">
-                    <button id="revealBtn" class="clip-path-button">View My Profile</button>
-                    <div id="imageFrame" class="clip-path-slot">
-                        <img src="/image.png" alt="Ismail Web Developer Portfolio">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-<section id="about" class="reveal">
-    <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
- <h3>I’m a Web Developer</h3>
+  <section id="about" class="reveal">
+      <div class="container">
+          <h2 class="section-title">About Me</h2>
+          <div class="about-content">
+             <h3>I’m a Web Developer</h3>
 
     <p>My name is Ismail, and I am a passionate and dedicated web developer. Web development is not just something I study — it is something I truly enjoy and want to build my future around.</p>
 
@@ -110,111 +76,184 @@
 
     <p>My future goal is to work on large-scale projects and build platforms that help students and businesses. Web development is not just a skill for me — it is my passion and my future.</p>
 
-        </div>
-    </div>
-</section>
-    <section id="goals" class="reveal">
-    <h2 class="section-title">My Vision & Goals</h2>
-        <div class="goals-grid">
-            <div class="goal-card">
-                <div class="icon">🚀</div>
-                <h3>Personal Growth</h3>
-                <p>I strive to be honest, polite, and disciplined. I want to build strong character and spread positivity.</p>
-            </div>
-            <div class="goal-card">
-                <div class="icon">💻</div>
-                <h3>Educational</h3>
-                <p>Achieving excellence in Computer Science and participating in AI competitions.</p>
-            </div>
-            <div class="goal-card">
-                <div class="icon">📖</div>
-                <h3>Religious</h3>
-                <p>Completing Hifz-ul-Qur’an and gaining deeper knowledge of Islamic teachings.</p>
-            </div>
-        </div>
-    </div>
-</section>
-<section id="skills" class="reveal">
-    <div class="container">
-        <h2 class="section-title">Technical Skills</h2>
-        <div class="skills-flex">
-            <div class="skill-tag">HTML5</div>
-            <div class="skill-tag">CSS3</div>
-            <div class="skill-tag">JavaScript</div>
-            <div class="skill-tag">UI Design</div>
-            <div class="skill-tag">Responsive Web</div>
-        </div>
-    </div>
-</section>
+          </div>
+      </div>
+  </section>
 
-<section id="contact" class="reveal">
-    <div class="container">
-        <h2 class="section-title">Contact with Me</h2>
-        <p class="contact-subtitle">Have a project in mind or just want to say hi? My inbox is always open! 24 Hours a Day, 7 Days a Week</p>
-        
-        <div class="contact-wrapper">
-            <form id="contactForm" onsubmit="return sendToWhatsApp()">
-                <div class="input-group">
-                    <input type="text" id="name" placeholder="Your Name" required>
-                </div>
-                <div class="input-group">
-                    <input type="email" id="email" placeholder="Your Email" required>
-                </div>
-                <div class="input-group">
-                    <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
-                </div>
-                <button type="submit" class="contact-btn">Send Message 🚀</button>
-            </form>
-        </div>
+  <section id="goals" class="reveal">
+      <h2 class="section-title">My Vision & Goals</h2>
+      <div class="goals-grid">
+          <div class="goal-card">
+              <div class="icon">🚀</div>
+              <h3>Personal Growth</h3>
+              <p>I strive to be honest, polite, and disciplined. I want to build strong character and spread positivity.</p>
+          </div>
+          <div class="goal-card">
+              <div class="icon">💻</div>
+              <h3>Educational</h3>
+              <p>Achieving excellence in Computer Science and participating in AI competitions.</p>
+          </div>
+          <div class="goal-card">
+              <div class="icon">📖</div>
+              <h3>Religious</h3>
+              <p>Completing Hifz-ul-Qur’an and gaining deeper knowledge of Islamic teachings.</p>
+          </div>
+      </div>
+  </section>
 
-        <div class="social-links">
-            <p>Connect with me on social media:</p>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/profile.php?id=61556400070103" target="_blank">Facebook</a>
-                <a href="https://www.instagram.com/sheikh_ibrahim0900/" target="_blank">Instagram</a>
-            </div>
-        </div>
-    </div>
-</section>
-<section>
-  <footer class="premium-footer">
-    <div class="waves">
-        <div class="wave" id="wave1"></div>
-        <div class="wave" id="wave2"></div>
-        <div class="wave" id="wave3"></div>
-        <div class="wave" id="wave4"></div>
-    </div>
-    
-    <div class="footer-content">
-        <div class="footer-logo">ISMAIL<span>.</span></div>
-        <p class="footer-tagline">Building the future with code and character.</p>
-        
-        <ul class="footer-menu">
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#goals">Goals</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+  <section id="skills" class="reveal">
+      <div class="container">
+          <h2 class="section-title">Technical Skills</h2>
+          <div class="skills-flex">
+              <div class="skill-tag">HTML5</div>
+              <div class="skill-tag">CSS3</div>
+              <div class="skill-tag">JavaScript</div>
+              <div class="skill-tag">Wordpress</div>
+              <div class="skill-tag">Artificial Intelligence</div>
+          </div>
+      </div>
+  </section>
 
-        <div class="footer-bottom">
-    <p>&copy; 2026 Ismail Portfolio | All Rights Reserved</p>
-    <div class="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-        <span>&uarr;</span>
-    </div>
-</div>
-        </div>
-    </div>
-</footer>
-</section>
-    <script src="script.js"></script>
+  <section id="contact" class="reveal">
+      <div class="container">
+          <h2 class="section-title">Contact with Me</h2>
+          <p class="contact-subtitle">Have a project in mind or just want to say hi? My inbox is always open! 24 Hours a Day, 7 Days a Week</p>
+          
+          <div class="contact-wrapper">
+              <form id="contactForm" onsubmit="return sendToWhatsApp()">
+                  <div class="input-group">
+                      <input type="text" id="name" placeholder="Your Name" required>
+                  </div>
+                  <div class="input-group">
+                      <input type="email" id="email" placeholder="Your Email" required>
+                  </div>
+                  <div class="input-group">
+                      <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                  </div>
+                  <button type="submit" class="contact-btn">Send Message 🚀</button>
+              </form>
+          </div>
+
+          <div class="social-links">
+              <p>Connect with me on social media:</p>
+              <div class="social-icons">
+                  <a href="https://www.facebook.com/profile.php?id=61556400070103" target="_blank">Facebook</a>
+                  <a href="https://www.instagram.com/sheikh_ibrahim0900/" target="_blank">Instagram</a>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section>
+      <footer class="premium-footer">
+          <div class="footer-content">
+              <div class="footer-logo">ISMAIL<span>.</span></div>
+              <p class="footer-tagline">Building the future with code and character.</p>
+              
+              <ul class="footer-menu">
+                  <li><a href="#hero">Home</a></li>
+                  <li><a href="#about">About</a></li>
+                  <li><a href="#goals">Goals</a></li>
+                  <li><a href="#skills">Skills</a></li>
+                  <li><a href="#contact">Contact</a></li>
+              </ul>
+
+              <div class="footer-bottom">
+                  <p>&copy; 2026 Ismail Portfolio | All Rights Reserved</p>
+                  <div class="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                      <span>&uarr;</span>
+                  </div>
+              </div>
+          </div>
+      </footer>
+  </section>
+
+  <script src="script.js"></script>
+  <script>
+    // CUSTOM CURSOR
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+    document.addEventListener('mousedown', () => cursor.classList.add('click'));
+    document.addEventListener('mouseup', () => cursor.classList.remove('click'));
+
+    // TYPING EFFECT
+    const message = "Web Developer | Designer | Student";
+    let charIdx = 0;
+    function startTyping() {
+        const target = document.getElementById("typedText");
+        if (target && charIdx < message.length) {
+            target.innerHTML += message.charAt(charIdx);
+            charIdx++;
+            setTimeout(startTyping, 100);
+        }
+    }
+
+    // SCROLL REVEAL
+    function initReveal() {
+        const sections = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            sections.forEach(s => {
+                const top = s.getBoundingClientRect().top;
+                if (top < window.innerHeight - 100) s.classList.add('active');
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+    }
+
+    // IMAGE REVEAL
+    const btn = document.getElementById('revealBtn');
+    const frame = document.getElementById('imageFrame');
+    const img = document.getElementById('targetImage');
+    if (btn) btn.addEventListener('click', () => {
+        frame.classList.toggle('frame-active');
+        img.classList.toggle('image-active');
+        btn.innerText = frame.classList.contains('frame-active') ? "Hide Profile" : "View My Profile";
+    });
+
+    // WHATSAPP FORM
+    function sendToWhatsApp() {
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const msg = document.getElementById('message').value;
+        const phoneNumber = "+92 3321314144"; 
+        const encodedMessage = encodeURIComponent(`*New Message from Portfolio*\n\n*Name:* ${name}\n*Email:* ${email}\n*Message:* ${msg}`);
+        window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank').focus();
+        return false;
+    }
+
+    // PARTICLES - BOUNCE OFF EDGES
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 50 },
+                color: { value: "#38bdf8" },
+                shape: { type: "circle" },
+                opacity: { value: 0.7 },
+                size: { value: 4 },
+                move: { enable: true, speed: 2, direction: "none", out_mode: "bounce" } // <-- bounce
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" }
+                },
+                modes: {
+                    repulse: { distance: 100 },
+                    push: { particles_nb: 4 }
+                }
+            },
+            retina_detect: true
+        });
+    }
+
+    // INITIAL LOAD
+    window.addEventListener('load', () => { startTyping(); initReveal(); });
+  </script>
+ <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </body>
-
 </html>
-
-
-
-
-
-
-
