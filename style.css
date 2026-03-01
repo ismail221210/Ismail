@@ -89,3 +89,29 @@ section { padding: 120px 10%; min-height: 80vh; display: flex; flex-direction: c
     .hero-container { flex-direction: column; text-align:center; }
     .clip-path-slot { width:220px; height:280px; margin:20px auto; }
 }
+#scrollTopBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--accent);
+    color: #0f172a;
+    padding: 15px 20px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s, transform 0.3s;
+    z-index: 10000;
+}
+#scrollTopBtn.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+#scrollTopBtn:hover {
+    background: #0f172a;
+    color: var(--accent);
+    transform: translateY(-5px);
+}
