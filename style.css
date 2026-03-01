@@ -5,39 +5,29 @@
     cursor: none;
 }
 
-/* ========================= */
-/* MOBILE (0px – 600px) */
-/* ========================= */
 /* =========================
    MOBILE NAVBAR FIX
    ========================= */
 
-/* Hamburger Icon */
 .menu-toggle {
     display: none;
     font-size: 28px;
     cursor: pointer;
+    color: white;
 }
 
-/* Default nav */
+/* Desktop */
 .nav-links {
     display: flex;
     gap: 20px;
 }
 
 /* =========================
-   MOBILE RESPONSIVE
+   MOBILE VERSION
    ========================= */
 @media (max-width: 768px) {
 
-    .menu-toggle {
-        display: block;
-        position: absolute;
-        right: 20px;
-        top: 20px;
-        z-index: 1001;
-    }
-
+    /* Hide normal menu completely */
     .nav-links {
         position: fixed;
         top: 0;
@@ -52,55 +42,25 @@
         z-index: 1000;
     }
 
+    /* Show hamburger */
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        z-index: 1100;
+    }
+
+    /* Show menu only when active */
     .nav-links.active {
         right: 0;
     }
 
     .nav-links a {
-        display: block;
         margin: 15px 0;
         font-size: 18px;
     }
-}
-@media (max-width: 600px) {
-
-    nav {
-        flex-direction: column;
-        align-items: center;
-        padding: 15px;
-    }
-
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 10px;
-    }
-
-    .hero-container {
-        flex-direction: column;
-        text-align: center;
-        width: 100%;
-        padding: 0 20px;
-    }
-
-    .hero-left, .hero-right {
-        width: 100%;
-    }
-
-    section {
-        padding: 100px 20px;
-    }
-
-    .section-title {
-        font-size: 1.8rem;
-    }
-
-    #typedText {
-        font-size: 1.2rem;
-    }
-}
-
-/* ========================= */
+}/* ========================= */
 /* TABLET (601px – 992px) */
 /* ========================= */
 @media (min-width: 601px) and (max-width: 992px) {
@@ -292,4 +252,5 @@ section {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(56, 189, 248, 0.4);
 }
+
 
