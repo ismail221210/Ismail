@@ -2,96 +2,109 @@
  * ISMAIL PORTFOLIO - FULL INTEGRATED SCRIPT
  */
 
-// 1. Force Page Top on Load
-// Iska maqsad ye hai ke refresh par page hamesha Home se shuru ho
-if (history.scrollRestoration) { 
-    history.scrollRestoration = 'manual'; 
-}
+document.addEventListener('DOMContentLoaded', () => {
 
-window.scrollTo(0, 0);
-
-window.addEventListener('load', () => {
+    // 1. Force Page Top on Load
+    if (history.scrollRestoration) history.scrollRestoration = 'manual';
     window.scrollTo(0, 0);
-    startTyping();
-    initReveal();
-});
 
-// 2. Typing Effect
-// Home page par text ko aik aik karke type karne ke liye
-const message = "Web Developer | Designer | Student";
-let charIdx = 0;
-function startTyping() {
-    const target = document.getElementById("typedText");
-    if (target && charIdx < message.length) {
-        target.innerHTML += message.charAt(charIdx);
-        charIdx++;
-        setTimeout(startTyping, 100);
+    // 2. Typing Effect
+    const typedTextEl = document.getElementById('typedText');
+    const message = "Web Developer | Designer | Student";
+    let charIdx = 0;
+
+    function startTyping() {
+        if (!typedTextEl) return;
+        if (charIdx < message.length) {
+            typedTextEl.textContent += message.charAt(charIdx);
+            charIdx++;
+            setTimeout(startTyping, 100);
+        }
     }
-}
+    startTyping();
 
-// 3. Scroll Reveal Logic
-// Jab aap scroll karein toh sections (About, Goals, Skills) smooth tareeqe se zahir hon
-function initReveal() {
-    const sections = document.querySelectorAll('.reveal');
-    const revealOnScroll = () => {
-        sections.forEach(s => {
-            const top = s.getBoundingClientRect().top;
-            // Agar section screen ke 100px qareeb ho toh active kardein
-            if (top < window.innerHeight - 100) { 
-                s.classList.add('active'); 
+    // 3. Scroll Reveal Logic
+    const revealElements = document.querySelectorAll('.reveal');
+
+    function revealOnScroll() {
+        revealElements.forEach(el => {
+            const top = el.getBoundingClientRect().top;
+            if (top < window.innerHeight - 100) {
+                el.classList.add('active');
             }
         });
-    };
+    }
+
     window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll(); // Initial check load par
-}
+    revealOnScroll();
 
-// 4. Image Reveal Button
-// Profile picture ko show/hide karne ke liye
-const btn = document.getElementById('revealBtn');
-const frame = document.getElementById('imageFrame');
-const img = document.getElementById('targetImage');
+    // 4. Image Reveal Button Logic
+    const btn = document.getElementById('revealBtn');
+    const frame = document.getElementById('imageFrame');
+    const img = document.getElementById('targetImage');
 
-if (btn) {
-    btn.addEventListener('click', () => {
-        frame.classList.toggle('frame-active');
-        img.classList.toggle('image-active');
-        btn.innerText = frame.classList.contains('frame-active') ? "Hide Profile" : "View My Profile";
-    });
-}
+    if (btn && frame && img) {
+        btn.addEventListener('click', () => {
+            frame.classList.toggle('frame-active');
+            img.classList.toggle('image-active');
+            btn.textContent = frame.classList.contains('frame-active') ? "Hide Profile" : "View My Profile";
+        });
+    }
 
-// 5. Particles
-// Background mein dots aur lines wali animation ke liye
-if (typeof particlesJS !== 'undefined') {
-    particlesJS("particles-js", {
-        "particles": {
-            "number": { "value": 50 },
-            "color": { "value": "#38bdf8" },
-            "line_linked": { "enable": true, "opacity": 0.15 },
-            "move": { "enable": true, "speed": 1.5 }
-        }
-    });
-}
+    // 5. Particles.js Initialization
+    if (window.particlesJS) {
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 50 },
+                color: { value: "#38bdf8" },
+                shape: { type: "circle" },
+                opacity: { value: 0.7 },
+                size: { value: 6, random: true },
+                line_linked: { enable: true, opacity: 0.15 },
+                move: { enable: true, speed: 1.5, bounce: true, out_mode: "bounce" }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true
+                },
+                modes: {
+                    repulse: { distance: 100 },
+                    push: { particles_nb: 4 }
+                }
+            },
+            retina_detect: true
+        });
+    }
 
-// 6. WhatsApp Contact Form Logic
-// Contact form ka data seedha aapke WhatsApp par bhej ne ke liye
-function sendToWhatsApp() {
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const msg = document.getElementById('message').value;
+    // 6. WhatsApp Contact Form Logic
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
 
-    // Yahan apna sahi WhatsApp number likhein (Country code ke sath)
-    const phoneNumber = "923321314144"; 
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const msg = document.getElementById('message').value.trim();
 
-    const encodedMessage = encodeURIComponent(
-        `*New Message from Portfolio*\n\n` +
-        `*Name:* ${name}\n` +
-        `*Email:* ${email}\n` +
-        `*Message:* ${msg}`
-    );
+            if (!name || !email || !msg) {
+                alert("Please fill all fields before sending.");
+                return;
+            }
 
-    const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-    window.open(url, '_blank').focus();
-    
-    return false; // Page refresh rokne ke liye
-}
+            const phoneNumber = "+923321314144"; // WhatsApp number
+            const encodedMessage = encodeURIComponent(
+                `*New Message from Portfolio*\n\n` +
+                `*Name:* ${name}\n` +
+                `*Email:* ${email}\n` +
+                `*Message:* ${msg}`
+            );
+
+            const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            window.open(url, '_blank');
+        });
+    }
+
+});
