@@ -6,7 +6,7 @@
 }
 .cursor {
     position: fixed;
-    top: 0; left: 0;
+    /* top: 0; left: 0; */
     width: 20px; height: 20px;
     background: var(--accent);
     border-radius: 50%;
@@ -309,3 +309,4 @@ section {
     0% { background-position-x: 0px; }
     100% { background-position-x: 1000px; }
 }
+
