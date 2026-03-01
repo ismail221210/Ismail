@@ -11,7 +11,6 @@ if (toggle) {
         navLinks.classList.toggle("active");
     });
 }
-
 // 1. Force Page Top on Load
 if (history.scrollRestoration) { 
     history.scrollRestoration = 'manual'; 
@@ -139,4 +138,5 @@ function initImageReveal() {
     }
 
 });
+
 
