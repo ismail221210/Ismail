@@ -2,6 +2,16 @@
  * ISMAIL PORTFOLIO - FIXED SCRIPT (No Extra Changes)
  */
 
+// Mobile Menu Toggle
+const toggle = document.getElementById("menuToggle");
+const navLinks = document.querySelector(".nav-links");
+
+if (toggle) {
+    toggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
+}
+
 // 1. Force Page Top on Load
 if (history.scrollRestoration) { 
     history.scrollRestoration = 'manual'; 
@@ -129,3 +139,4 @@ function initImageReveal() {
     }
 
 });
+
