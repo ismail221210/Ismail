@@ -24,22 +24,33 @@
     <title>Ismail Arain | Web Developer</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+            /* Custom cursor */
+    .cursor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        background-color: #a020f0; /* Purple */
+        border-radius: 50%;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+        transition: width 0.15s ease, height 0.15s ease, background-color 0.15s ease;
+    }
+
+    /* Optional: expand on click */
+    .cursor.active {
+        width: 40px;
+        height: 40px;
+        background-color: #ff00ff;
+        opacity: 0.6;
+    }
+
+    </style>
     
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <style>
-        .cursor {
-    position: fixed;
-    top: 0; left: 0;
-    width: 20px; height: 20px;
-    background: var(--accent);
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    /* transition: all 0.5s ease-out; */
-    z-index: 10000;
-    background-color: rgb(245, 32, 249);
-}
-    </style>
 </head>
 <body>
 
@@ -186,15 +197,22 @@
 
   <script src="script.js"></script>
   <script>
-    // CUSTOM CURSOR
-    const cursor = document.getElementById('cursor');
-    document.addEventListener('mousemove', (e) => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-    });
-    document.addEventListener('mousedown', () => cursor.classList.add('click'));
-    document.addEventListener('mouseup', () => cursor.classList.remove('click'));
+    <!-- Custom cursor element -->
+    const cursor = document.querySelector('.cursor');
 
+    document.addEventListener('mousemove', e => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
+
+    // Optional: expand cursor on click
+    document.addEventListener('mousedown', () => {
+        cursor.classList.add('active');
+    });
+
+    document.addEventListener('mouseup', () => {
+        cursor.classList.remove('active');
+    });
     // TYPING EFFECT
     const message = "Web Developer | Designer | Student";
     let charIdx = 0;
