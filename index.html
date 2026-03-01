@@ -26,6 +26,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <style>
+        .cursor {
+    position: fixed;
+    top: 0; left: 0;
+    width: 20px; height: 20px;
+    background: var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    /* transition: all 0.5s ease-out; */
+    z-index: 10000;
+    background-color: rgb(245, 32, 249);
+}
+    </style>
 </head>
 <body>
 
@@ -55,7 +69,7 @@
               <div class="click-path-container">
                   <button id="revealBtn" class="clip-path-button">View My Profile</button>
                   <div id="imageFrame" class="clip-path-slot">
-                      <img id="targetImage" src="/image.png" alt="Ismail" class="/image.png">
+                      <img id="targetImage" src="/image.png" alt="Ismail" class="clip-path-image">
                   </div>
               </div>
           </div>
@@ -258,4 +272,3 @@
   </script>
 </body>
 </html>
-
