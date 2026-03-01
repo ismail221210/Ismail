@@ -1,55 +1,76 @@
 /**
- * ISMAIL PORTFOLIO - FULL INTEGRATED SCRIPT
+ * ISMAIL PORTFOLIO - FIXED SCRIPT (No Extra Changes)
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+// 1. Force Page Top on Load
+if (history.scrollRestoration) { 
+    history.scrollRestoration = 'manual'; 
+}
 
-    // 1. Force Page Top on Load
-    if (history.scrollRestoration) history.scrollRestoration = 'manual';
+window.addEventListener('load', () => {
     window.scrollTo(0, 0);
+    startTyping();
+    initReveal();
+    initImageReveal();
+});
 
-    // 2. Typing Effect
-    const typedTextEl = document.getElementById('typedText');
-    const message = "Web Developer | Designer | Student";
-    let charIdx = 0;
+// 2. Typing Effect (FIXED - No Double Letters)
+const message = "Web Developer | Designer | Student";
+let charIdx = 0;
+let typingStarted = false;
 
-    function startTyping() {
-        if (!typedTextEl) return;
+function startTyping() {
+    if (typingStarted) return; // Prevent double run
+    typingStarted = true;
+
+    const target = document.getElementById("typedText");
+    if (!target) return;
+
+    function type() {
         if (charIdx < message.length) {
-            typedTextEl.textContent += message.charAt(charIdx);
+            target.innerHTML += message.charAt(charIdx);
             charIdx++;
-            setTimeout(startTyping, 100);
+            setTimeout(type, 100);
         }
     }
-    startTyping();
 
-    // 3. Scroll Reveal Logic
-    const revealElements = document.querySelectorAll('.reveal');
+    type();
+}
 
-    function revealOnScroll() {
-        revealElements.forEach(el => {
-            const top = el.getBoundingClientRect().top;
-            if (top < window.innerHeight - 100) {
-                el.classList.add('active');
+// 3. Scroll Reveal Logic
+function initReveal() {
+    const sections = document.querySelectorAll('.reveal');
+
+    const revealOnScroll = () => {
+        sections.forEach(s => {
+            const top = s.getBoundingClientRect().top;
+            if (top < window.innerHeight - 100) { 
+                s.classList.add('active'); 
             }
         });
-    }
+    };
 
     window.addEventListener('scroll', revealOnScroll);
     revealOnScroll();
+}
 
-    // 4. Image Reveal Button Logic
+// 4. Image Reveal Button (FIXED)
+function initImageReveal() {
     const btn = document.getElementById('revealBtn');
     const frame = document.getElementById('imageFrame');
     const img = document.getElementById('targetImage');
 
-    if (btn && frame && img) {
-        btn.addEventListener('click', () => {
-            frame.classList.toggle('frame-active');
-            img.classList.toggle('image-active');
-            btn.textContent = frame.classList.contains('frame-active') ? "Hide Profile" : "View My Profile";
-        });
-    }
+    if (!btn || !frame || !img) return;
+
+    btn.addEventListener('click', () => {
+        frame.classList.toggle('frame-active');
+        img.classList.toggle('image-active');
+
+        btn.innerText = frame.classList.contains('frame-active')
+            ? "Hide Profile"
+            : "View My Profile";
+    });
+}
 
     // 5. Particles.js Initialization
     if (window.particlesJS) {
